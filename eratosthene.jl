@@ -1,24 +1,17 @@
-function sieve(n)
-    a = trues(n)
-    a[1] = false
-    for i = 1:n
-        if a[i]
-            j = i * i
-            if j > n
-                return find(a)
-            else
-                a[j:i:n] = false
+function sieve(lim :: UInt64)
+    is_prime :: Array = trues(lim)
+    llim :: Int = isqrt(lim)
+    result :: Array = [2]  #Initial array
+    for i = 3:2:lim
+        if is_prime[i]
+            if i <= llim
+                for j = i*i:2*i:lim
+                    is_prime[j] = false
+                end
+
             end
+            push!(result,i)
         end
     end
+    return result
 end
-
-print("Entrer la limite supérieure:")
-limit = parse(UInt8, readline())
-while limit < 2
-    print("La limite supérieure doit être >= à 2")
-    limit = parse(UInt8, readline())
-end
-
-print(sieve(limit))
-print('\n')
