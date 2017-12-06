@@ -1,3 +1,4 @@
+#Hippolyte DUBOIS / Marvin JEAN
 sieve <- function(n) {
     if (n < 2) return(NULL)
     a <- rep(T, n)

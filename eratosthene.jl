@@ -1,4 +1,5 @@
-function sieve(lim :: UInt64)
+# Hippolyte DUBOIS / Marvin JEAN
+function sieve(lim :: Int64)
     is_prime :: Array = trues(lim)
     llim :: Int = isqrt(lim)
     result :: Array = [2]  #Initial array
@@ -8,7 +9,7 @@ function sieve(lim :: UInt64)
                 for j = i*i:2*i:lim
                     is_prime[j] = false
                 end
-
+                sleep(1)
             end
             push!(result,i)
         end
